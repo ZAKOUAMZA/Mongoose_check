@@ -1,0 +1,34 @@
+Création de requêtes
+Mongoose dispose d’une API très riche qui gère de nombreuses opérations complexes prises en charge par MongoDB. Prenons par exemple une requête où nous pouvons construire de manière incrémentielle des composants de requête.
+
+Dans cet exemple, nous allons :
+
+Rechercher tous les utilisateurs.
+Sautez les 100 premiers enregistrements.
+Limitez les résultats à 10 enregistrements.
+Triez les résultats par champ firstName.
+Sélectionnez le prénom.
+Exécutez cette requête.
+UserModel.find()                   // find all users
+         .skip(100)                // skip the first 100 items
+         .limit(10)                // limit to 10 items
+         .sort({firstName: 1}      // sort ascending by firstName
+         .select({firstName: true} // select firstName only
+         .exec()                   // execute the query
+         .then(docs => {
+            console.log(docs)
+          })
+         .catch(err => {
+            console.error(err)
+          })
+
+
+
+
+
+
+
+
+
+
+https://student.learn.gomycode.co/checkpoints/5476853c-f214-43f8-ae42-4373aeb1e705
